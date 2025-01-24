@@ -3,10 +3,18 @@ sources:
     handler:
       graphql:
         endpoint: https://countries.trevorblades.com/
+    transforms:
+      - prefix:
+          value: CTRY_
+          includeRootOperations: true
   - name: CartQL
     handler:
       graphql:
         endpoint: https://api.cartql.com
+    transforms:
+      - prefix:
+          value: CQL_
+          includeRootOperations: true
   - name: Stripe
     handler:
       openapi:
@@ -14,4 +22,3 @@ sources:
         baseUrl: https://api.stripe.com
         operationHeaders:
           Authorization: Bearer ${STRIPE_SECRET_KEY}
-            
